@@ -22,7 +22,7 @@ use warnings;
 #If it is not already loaded.
 require Dotiac::DTL::Core;
 
-our $VERSION=0.1;
+our $VERSION=0.2;
 
 my $old;
 
@@ -30,13 +30,14 @@ our %keymap=();
 
 sub import { 
 	no warnings qw/redefine/;
-	$old = *Dotiac::DTL::devar_var;
+	$old = \&Dotiac::DTL::devar_var;
 	*Dotiac::DTL::devar_var=\&devar_var;
 
 }
 sub unimport {
 	no warnings qw/redefine/;
 	*Dotiac::DTL::devar_var = $old;
+	#die Data::Dumper->Dump([*Dotiac::DTL::devar_var{CODE},$old]);
 }
 
 sub devar_var {

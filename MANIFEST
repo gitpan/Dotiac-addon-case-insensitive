@@ -9,4 +9,5 @@ t/4_pod.t
 t/7_special_ci.t
 t/special_ci.html
 t/special_ci2.html
+t/special_ci_off.html
 t/Dtest.pm
