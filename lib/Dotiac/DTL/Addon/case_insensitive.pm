@@ -22,7 +22,7 @@ use warnings;
 #If it is not already loaded.
 require Dotiac::DTL::Core;
 
-our $VERSION=0.2;
+our $VERSION=0.3;
 
 my $old;
 
@@ -51,7 +51,7 @@ sub devar_var {
 	my $escape=shift;
 
 	return Dotiac::DTL::Value->safe(substr $name,1,-1) if $f eq "'" and $l eq "'" or $f eq '"' and $l eq '"';
-	return Dotiac::DTL::Value->safe(descap(substr $name,1,-1)) if $f eq "`" and $l eq "`";
+	return Dotiac::DTL::Value->safe(Dotiac::DTL::descap(substr $name,1,-1)) if $f eq "`" and $l eq "`";
 
 	if ($lcn eq "block.super" and $param->{"block.super"}) {
 		return Dotiac::DTL::Value->safe($param->{"block.super"}->string($param,@_)) if Scalar::Util::blessed($param->{"block.super"});

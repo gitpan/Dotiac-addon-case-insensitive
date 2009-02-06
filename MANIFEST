@@ -10,4 +10,5 @@ t/7_special_ci.t
 t/special_ci.html
 t/special_ci2.html
 t/special_ci_off.html
+t/special_ci_static.html
 t/Dtest.pm
